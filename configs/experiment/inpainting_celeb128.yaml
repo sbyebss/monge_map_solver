@@ -1,0 +1,15 @@
+# @package _global_
+
+defaults:
+  - inpainting_celeb64
+
+name: "free_mask_128"
+
+datamodule:
+  image_size: 128
+  dl:
+    batch_size: 16
+
+model:
+  f_net:
+    img_size: 128

@@ -1,0 +1,13 @@
+# @package _global_
+
+experiment_mode: True
+
+# allows for custom naming of the experiment
+name: ???
+
+hydra:
+  run:
+    dir: logs/reproduce/${name}/seed${seed}
+  sweep:
+    dir: logs/reproduce/${name}/multirun
+    subdir: seed${seed}

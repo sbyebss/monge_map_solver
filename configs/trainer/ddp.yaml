@@ -1,0 +1,5 @@
+defaults:
+  - default.yaml
+
+devices: 4
+strategy: ddp

@@ -1,0 +1,22 @@
+# @package _global_
+
+# run in experiment mode with:
+# `python run.py mode=exp name=experiment_name`
+
+experiment_mode: False
+
+# allows for custom naming of the experiment
+name: ???
+
+skip_train: True
+test_after_training: True
+
+hydra:
+  # sets output paths for all file logs to `logs/experiment/name'
+  run:
+    dir: logs/test/${name}/${datamodule.dataset}/${datamodule.image_size}
+  sweep:
+    dir: logs/test/${name}/multiruns/${datamodule.dataset}/${datamodule.image_size}
+    subdir: ${hydra.job.num}
+
+checkpoint_path: "path/to/last.ckpt"

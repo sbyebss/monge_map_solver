@@ -1,0 +1,15 @@
+defaults:
+  - default
+
+module:
+  _target_: src.models.inpaint_fix_mask.InpaintFixMaskModule
+
+T_net:
+  _target_: src.networks.unet.Generator
+
+f_net:
+  _target_: src.networks.cnn.Discriminator
+
+n_outer_iter: 1
+n_inner_iter: 2
+cost_type: "ip_loss"

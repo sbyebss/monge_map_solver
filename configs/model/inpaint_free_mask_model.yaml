@@ -1,0 +1,10 @@
+defaults:
+  - inpaint_fix_mask_model
+
+module:
+  _target_: src.models.inpaint_free_mask.InpaintFreeMaskModule
+
+cost_type: mse
+mask_type: batch_vary
+
+coeff_mse: 10000.
