@@ -83,8 +83,6 @@ class BaseModule(pl.LightningModule):
         f_opt.zero_grad()
         self.manual_backward(loss)
         f_opt.step()
-        if self.cfg.ema:
-            self.ema_map.update()
         self.log_dict(loss_info)
 
     def opt_map(self, x_tensor, map_opt, mask=None):
@@ -102,6 +100,8 @@ class BaseModule(pl.LightningModule):
 
         self.manual_backward(loss)
         map_opt.step()
+        if self.cfg.ema:
+            self.ema_map.update()        
         # with self.warmup_scheduler.dampening():
         #     self.scheduler.step()
         self.log_dict(loss_info)
