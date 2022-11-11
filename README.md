@@ -1,6 +1,6 @@
 # Scalable Computation of Monge Maps with General Costs
 
-This is the official `Python` implementation of the paper **Scalable Computation of Monge Maps with General Costs** (paper on [openreview](https://openreview.net/pdf?id=rEnGR3VdDW5), [Jiaojiao Fan](https://sbyebss.github.io/)\*, Shu Liu\*, Shaojun Ma\*, [Yongxin Chen](https://yongxin.ae.gatech.edu/), and [Haomin Zhou](https://hmzhou.math.gatech.edu/)).
+This is the official `Python` implementation of the paper **Scalable Computation of Monge Maps with General Costs** (paper on [openreview](https://openreview.net/pdf?id=rEnGR3VdDW5), [Jiaojiao Fan](https://sbyebss.github.io/)\*, Shu Liu\*, Shaojun Ma, [Yongxin Chen](https://yongxin.ae.gatech.edu/), and [Haomin Zhou](https://hmzhou.math.gatech.edu/)).
 
 The repository contains reproducible `PyTorch` source code for inpainting CelebA 64\*64 or CelebA 128\*128 dataset with Monge map.
 
