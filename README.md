@@ -8,6 +8,7 @@ The repository includes reproducible PyTorch source code for:
 2. Unpaired class-preserving map.
 3. Unpaired inpainting on the CelebA 128x128 dataset using Monge maps.
 4. Transport between synthetic datasets.
+5. Other toy examples
 
 <p align="center"><img src="assets/txt_img_diag.png" width="450" /></p>
 
