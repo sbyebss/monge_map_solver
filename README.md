@@ -48,45 +48,45 @@ The folder structure of text-to-image datasets
 
 ```markdown
 ./datasets/laion-art_test
-|-laion_art
-	|-laion-art.parquet
-|-laion-art-en
-  |-laion-art-en.parquet
-|-laion-high-resolution-en
-	|-clip_emb
-		|-img_emb
-		|-img_emb_reorder
-		|-text_emb
-		|-text_emb_reorder
-		|-metadata
-		|-stats
-	|-00000.tar
-  |-00000.parquet
-	|-00000_stats.json
-  |-00001.tar
-  |-00001.parquet
-	|-00001_stats.json
-  |-...
+|- laion_art
+|  |- laion-art.parquet
+|- laion-art-en
+|  |- laion-art-en.parquet
+|- laion-high-resolution-en
+|  |- clip_emb
+|  |  |- img_emb
+|  |  |- img_emb_reorder
+|  |  |- text_emb
+|  |  |- text_emb_reorder
+|  |  |- metadata
+|  |  |- stats
+|  |- 00000.tar
+|  |- 00000.parquet
+|  |- 00000_stats.json
+|  |- 00001.tar
+|  |- 00001.parquet
+|  |- 00001_stats.json
+|- ...
 ```
 
 ```markdown
 ./datasets/cc3m_test
-|-cc3m_no_watermark.tsv
-|-cc3m_no_watermark
-	|-clip_emb
-		|-img_emb
-		|-img_emb_reorder
-		|-text_emb
-		|-text_emb_reorder
-		|-metadata
-		|-stats
-	|-00000.tar
-  |-00000.parquet
-	|-00000_stats.json
-  |-00001.tar
-  |-00001.parquet
-	|-00001_stats.json
-  |-...
+|- cc3m_no_watermark.tsv
+|- cc3m_no_watermark
+|  |- clip_emb
+|  |  |- img_emb
+|  |  |- img_emb_reorder
+|  |  |- text_emb
+|  |  |- text_emb_reorder
+|  |  |- metadata
+|  |  |- stats
+|  |- 00000.tar
+|  |- 00000.parquet
+|  |- 00000_stats.json
+|  |- 00001.tar
+|  |- 00001.parquet
+|  |- 00001_stats.json
+|- ...
 ```
 
 
