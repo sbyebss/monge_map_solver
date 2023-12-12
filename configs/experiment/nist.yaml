@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+  - override /mode: exp.yaml
+  - override /model: digits_model.yaml
+  - override /datamodule: nist_datamodule.yaml
+  - override /callbacks: digit_callbacks.yaml
+  - override /logger: null
+
+name: "class_map"
+
+trainer:
+  max_epochs: 200
+  check_val_every_n_epoch: 4
+
+logger:
+  wandb:
+    group: "class_map"
+    tags: ["debug"]

@@ -1,0 +1,14 @@
+# @package _global_
+
+defaults:
+  - test_impaint
+
+model:
+  map_ckpt_path: ${run_folder}/map_${load_map_ckpt_epoch}_ema.pth
+
+checkpoint_path: None
+
+run_folder: ${work_dir}/logs/reproduce/celeb_size64_dl_shuffle/seed1
+load_map_ckpt_epoch: 18300
+# run_folder: ${work_dir}/logs/experiments/korotin/multiruns/2022-10-16/15-31-35/1
+# load_map_ckpt_epoch: 15800

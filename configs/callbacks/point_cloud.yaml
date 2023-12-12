@@ -1,0 +1,13 @@
+defaults:
+  - default.yaml
+
+model_checkpoint:
+  monitor: "validation_loss/chamfer with target" # name of the logged metric which determines when model is improving
+  mode: "max" # "max" means higher metric value is better, can be also "min"
+  save_top_k: 1 # save k best models (determined by above metric)
+
+visualization:
+  _target_: src.callbacks.point_cloud_callbacks.PointCloudViz
+  log_interval: 1000 # log once / # global steps
+  n_test_samples: 9
+  emb_map_path: None

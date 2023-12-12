@@ -1,0 +1,34 @@
+defaults:
+  - class_model
+
+module:
+  _target_: src.models.class_model.ClassMapModule
+
+# T_net:
+#   base_factor: 16
+
+T_net:
+  _target_: src.networks.cond_unet.Conditional_UNet
+  num_classes: 10
+
+f_net:
+  _target_: src.networks.resnet.ConditionalDiscriminator
+  num_class: 10
+  size: 32
+  nc: 3
+
+# use Korotin unet and resnet discriminator
+classifier:
+  _target_: src.networks.cnn.SpinalNet
+  num_class: ${model.num_class}
+
+coeff_mse: 100
+coeff_label: 50
+
+classifier_epoch: 0
+load_epoch: null
+dump_classifier: false
+
+num_class: 10
+
+classifier_save_path: ${work_dir}/data/pretrain_classifier/${datamodule.target.dataset}_spinalnet_long.pt

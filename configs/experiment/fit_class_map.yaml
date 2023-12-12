@@ -1,0 +1,31 @@
+# @package _global_
+
+defaults:
+  - nist
+
+model:
+  module:
+    _target_: src.models.fit_class_map_model.FitClassMapModule
+
+  T_net:
+    _target_: src.networks.unet.SimpleUNet
+    n_channels: 3
+    n_classes: 3
+    base_factor: 48
+
+  lr_T: 1.0e-3 # They use 5e-5???
+
+  canonical_map:
+    _target_: src.networks.cond_unet.Conditional_UNet
+    num_classes: 10
+
+  canonical_map_save_path: ${work_dir}/logs/experiments/correct_cond_fmnist2mnist/runs/2022-10-18/21-22-05/map_136_ema.pth
+
+callbacks:
+  visualization:
+    _target_: src.callbacks.fit_unconditional_callbacks.FitMapViz
+    log_interval: 500
+    num_test_sample: 64
+
+  save_model:
+    dump_f: false

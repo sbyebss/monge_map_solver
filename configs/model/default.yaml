@@ -1,0 +1,19 @@
+lr_T: 1.0e-4
+lr_f: 1.0e-4
+beta1: 0.5
+beta2: 0.999
+schedule_learning_rate: 0
+
+n_outer_iter: 1
+n_inner_iter: 10
+cost_type: "mse"
+
+max_grad_norm: 0.0
+optimal_penalty: false
+coeff_mse: 1. # TODO: replace this by coeff_cost.
+coeff_gp: 0.
+coeff_go: 0.
+
+ema: true
+ema_beta: 0.995
+ema_update_after_step: 0

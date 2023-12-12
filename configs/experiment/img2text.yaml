@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+  - override /mode: exp.yaml
+  - override /model: img2text_model.yaml
+  - override /datamodule: img_text_datamodule.yaml
+  - override /callbacks: default.yaml
+  - override /logger: null
+
+name: "img2text"
+
+trainer:
+  max_epochs: 1000
+  check_val_every_n_epoch: 1
+
+logger:
+  wandb:
+    group: "post_hoc_classify"
+    tags: ["debug"]

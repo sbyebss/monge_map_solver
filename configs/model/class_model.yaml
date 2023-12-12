@@ -1,0 +1,42 @@
+defaults:
+  - default
+
+module:
+  _target_: src.models.class_model.ClassMapModule
+
+lr_l: 5.0e-4
+
+# Currently, I use ddpm unet from Korotin NOT paper as my feature generator
+# and the discriminator from Korotin resnet (without label input)
+# and the classifier from Korotin resnet (with additional linear classifier layer)
+T_net:
+  _target_: src.networks.unet.SimpleUNet
+  n_channels: 3
+  n_classes: 3
+  base_factor: 48
+
+classifier:
+  _target_: src.networks.resnet.Classifier
+  num_class: ${model.num_class}
+  size: ${datamodule.image_size}
+  s0: 8
+
+f_net:
+  _target_: src.networks.resnet.ResNetDiscriminator
+
+  # _target_: src.networks.resnet.ConditionalDiscriminator
+  # num_class: ${model.num_class}
+
+  size: ${datamodule.image_size}
+
+coeff_mse: 1e4
+coeff_label: 1e3
+classifier_epoch: 1
+load_epoch: 500 # ${model.classifier_epoch}
+dump_classifier: true
+
+num_class: 4
+
+fid_fake_img_path: fid_fake_img
+real_img_path: real_img
+classifier_save_path: ${work_dir}/data/pretrain_classifier/celebA_n_class_${model.num_class}_epoch_${model.load_epoch}.pt

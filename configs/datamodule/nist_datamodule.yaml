@@ -1,0 +1,16 @@
+defaults:
+  - two_domain_img
+
+dl:
+  batch_size: 64
+
+source:
+  dataset: MNIST
+  image_size: 32
+
+target:
+  dataset: USPS
+  image_size: 32
+
+channel: 3
+random_flip: false

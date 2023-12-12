@@ -1,0 +1,26 @@
+defaults:
+  - default
+
+module:
+  _target_: src.models.img2text_model.Img2TextModule
+
+clip_model: "ViT-L/14"
+
+T_net:
+  _target_: src.networks.mlp.ResGenerator
+  feat_dim: 768
+  hidden_dim: 768
+  num_layer: 3
+f_net:
+  _target_: src.networks.mlp.ResDiscriminator
+  feat_dim: 768
+  hidden_dim: 128
+  num_layer: 1
+
+image_embed_dim: 768
+wd: 6.02e-2
+
+coeff_mse: 1e4
+cost_type: "cos"
+
+classifier_epoch: 0

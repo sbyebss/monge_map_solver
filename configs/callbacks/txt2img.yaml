@@ -1,0 +1,21 @@
+defaults:
+  - default.yaml
+
+model_checkpoint:
+  monitor: "validation_cos_sim/difference from baseline similarity" # name of the logged metric which determines when model is improving
+  mode: "min" # "max" means higher metric value is better, can be also "min"
+  save_top_k: 1 # save k best models (determined by above metric)
+
+sampling:
+  _target_: src.callbacks.txt2img_callbacks.Text2ImgViz
+  log_interval: 1 # log once / #validations epochs
+  n_sample_images: 10
+  model_config_path: ${work_dir}/configs/model/dalle2_laion_model.json
+  dalle2_decoder_path: ${model_dir}/dalle2_laion/whole_decoder.pth
+  dalle2_prior_path: ${model_dir}/dalle2_laion/dalle2_prior.pth
+  emb_map_path: ${run_folder}/map_111_ema.pth
+
+save_model:
+  save_interval: 2
+  dump_f: false
+  wait_epoch: 0

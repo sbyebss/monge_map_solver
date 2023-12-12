@@ -1,0 +1,10 @@
+defaults:
+  - default.yaml
+
+img_visualization:
+  _target_: src.callbacks.img_callbacks.InpaintViz
+  log_interval: 1000
+
+save_model:
+  save_interval: 2
+  dump_f: false

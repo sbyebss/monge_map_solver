@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+  - override /mode: exp.yaml
+  - override /model: point_cloud_model.yaml
+  - override /datamodule: point_cloud_datamodule.yaml
+  - override /callbacks: point_cloud.yaml
+  - override /logger: null
+
+name: "point_cloud"
+
+trainer:
+  max_epochs: 1000
+  check_val_every_n_epoch: 3
+
+logger:
+  wandb:
+    group: "point_cloud"
+    tags: ["debug"]

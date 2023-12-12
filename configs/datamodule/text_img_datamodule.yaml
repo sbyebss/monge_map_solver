@@ -1,0 +1,39 @@
+_target_: src.datamodules.text2image_datamodule.TextImageEmbedModule
+
+batch_size: 225
+
+sub_ds_path: cc3m/cc3m_no_watermark
+num_train_data: 3e5 # 0.6M total 877299=0.8M
+start_shard: 163 # the last 4 shards
+end_shard: 167
+
+# sub_ds_path: laion_art/laion-high-resolution-en
+# aesthetic index > 8 in LAION5B dataset.
+# num_train_data: 5e5 # 1M
+# start_shard: 323 # the last 5 shards
+# end_shard: 328
+
+num_test_data: 5e3 # 5k = 0.005M
+
+img_url: ${data_dir}/${datamodule.sub_ds_path}/clip_emb/img_emb/
+
+meta_url: ${data_dir}/${datamodule.sub_ds_path}/clip_emb/metadata/
+
+# num_train_data: 200000 # 0.2M
+# num_test_data: 10000 # 0.01M
+
+# ---------- used for sampling in the test process----------
+preprocessing:
+  RandomResizedCrop:
+    size: [224, 224]
+    scale: [0.75, 1.0]
+    ratio: [1.0, 1.0]
+  ToTensor: true
+
+sample_batch_size: 10
+shard_width: 5
+index_width: 4
+
+webdataset_base_url: ${data_dir}/${datamodule.sub_ds_path}/{}.tar
+img_embeddings_url: ${data_dir}/${datamodule.sub_ds_path}/clip_emb/img_emb_reorder/
+text_embeddings_url: ${data_dir}/${datamodule.sub_ds_path}/clip_emb/text_emb_reorder/

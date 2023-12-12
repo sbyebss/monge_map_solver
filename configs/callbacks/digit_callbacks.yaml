@@ -1,0 +1,10 @@
+defaults:
+  - default.yaml
+
+visualization:
+  _target_: src.callbacks.img_callbacks.MapViz
+  log_interval: 500
+  num_test_sample: 64
+
+save_model:
+  wait_epoch: 0

@@ -1,0 +1,19 @@
+# @package _global_
+
+experiment_mode: False
+
+# allows for custom naming of the experiment
+name: ???
+
+skip_train: True
+test_after_training: True
+
+hydra:
+  # sets output paths for all file logs to `logs/experiment/name'
+  run:
+    dir: logs/test/${name}/${datamodule.dataset}/${datamodule.image_size}
+  sweep:
+    dir: logs/test/${name}/multiruns/${datamodule.dataset}/${datamodule.image_size}
+    subdir: ${hydra.job.num}
+
+checkpoint_path: "${work_dir}/logs/experiments/free_half_mask/runs/2022-03-05/03-10-57/checkpoints/last.ckpt"

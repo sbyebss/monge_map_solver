@@ -1,0 +1,23 @@
+_target_: src.datamodules.ipnt_fix_datamodule.InpaintImageModule
+
+dl:
+  batch_size: ??
+  pin_memory: false
+  num_workers: 0
+
+dataset: ??
+image_size: ??
+channel: ??
+full_path: ${data_dir}/celeba/
+dim:
+  - ${datamodule.channel}
+  - ${datamodule.image_size}
+  - ${datamodule.image_size}
+
+random_flip: true
+logit_transform: false
+uniform_dequantization: false
+gaussian_dequantization: false
+rescaled: true
+image_mean:
+image_std:

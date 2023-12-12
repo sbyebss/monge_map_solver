@@ -1,0 +1,70 @@
+defaults:
+  - default
+
+module:
+  _target_: src.models.text2img_model.Text2ImgModule
+
+clip_model: "ViT-L/14"
+
+# use dalle2 prior network
+T_net:
+  _target_: src.networks.dalle2_prior.DiffusionPriorNetwork
+  dim: 768
+  depth: 4
+  dim_head: 64
+  heads: 8
+  ff_mult: 2
+  norm_out: true
+  attn_dropout: 0.05
+  ff_dropout: 0.05
+  final_proj: true
+  normformer: true
+  rotary_emb: true
+
+f_net:
+  _target_: src.networks.disc_attention.Discriminator
+  dim: 768
+  depth: 2
+  dim_head: 32
+  heads: 4
+  ff_mult: 1
+  norm_out: true
+  attn_dropout: 0.05
+  ff_dropout: 0.05
+  final_proj: true
+  normformer: true
+  rotary_emb: true
+
+# T_net:
+#   _target_: src.networks.mlp.ResGenerator
+#   feat_dim: 768
+#   hidden_dim: 1024
+#   num_layer: 5
+# f_net:
+#   _target_: src.networks.mlp.ResDiscriminator
+#   feat_dim: 768
+#   hidden_dim: 1024
+#   num_layer: 3
+
+image_embed_dim: 768
+lr_T: 1.0e-4 # They use 5e-5???
+lr_f: 1.0e-4
+wd: 6.02e-2
+
+n_inner_iter: 10
+coeff_mse: 5e5
+cost_type: "cos"
+exponent: 1
+
+ema_beta: 0.9999
+max_grad_norm: 0.5
+ema_update_after_step: 55
+# warmup_steps: 50
+# I didn't add ema_update_after_step, it has to use lucidrains' code
+# didn't add warmup_scheduler (warmup_steps), need additional scheduler.
+# Warm up is for stable training.
+
+# not used
+beta1: None
+beta2: None
+schedule_learning_rate: None

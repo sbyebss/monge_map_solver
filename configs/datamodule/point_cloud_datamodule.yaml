@@ -1,0 +1,5 @@
+_target_: src.datamodules.point_cloud_datamodule.PointCloudModule
+
+batch_size: 128
+
+ds_path: ${data_dir}/point_cloud/mvp

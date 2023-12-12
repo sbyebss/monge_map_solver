@@ -1,0 +1,24 @@
+defaults:
+  - default
+
+module:
+  _target_: src.models.point_cloud_model.PointCloudModule
+
+T_net:
+  _target_: src.networks.point_cloud_net.Generator
+  context_dim: 256
+  residual: true
+
+f_net:
+  _target_: src.networks.point_cloud_net.Discriminator
+  context_dim: 128
+  residual: false
+
+coeff_mse: 5e4
+cost_type: "chamfer_loss"
+
+ema_update_after_step: 55
+
+# not used
+beta1: 0.9
+beta2: 0.999

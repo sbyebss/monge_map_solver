@@ -1,0 +1,13 @@
+# @package _global_
+defaults:
+  - test_impaint
+
+hydra:
+  run:
+    dir: logs/test/${name}
+  sweep:
+    dir: logs/test
+    subdir: ${name}
+
+run_folder: ${work_dir}/logs/reproduce/reproduce_full_cc3m
+checkpoint_path: ${run_folder}/checkpoints/last.ckpt

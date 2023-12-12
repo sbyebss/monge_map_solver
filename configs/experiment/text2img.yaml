@@ -1,0 +1,22 @@
+# @package _global_
+
+defaults:
+  - override /mode: exp.yaml
+  - override /model: text2img_model.yaml
+  - override /datamodule: text_img_datamodule.yaml
+  - override /callbacks: txt2img.yaml
+  - override /logger: null
+
+name: "text2img"
+
+trainer:
+  max_epochs: 120
+  check_val_every_n_epoch: 1
+
+run_folder: ${hydra:run.dir}
+# I don't understand why this line was commented out before
+
+logger:
+  wandb:
+    group: "text2img"
+    tags: ["debug"]

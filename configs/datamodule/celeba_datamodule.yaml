@@ -1,0 +1,10 @@
+defaults:
+  - img_inpaint_datamodule
+
+dl:
+  batch_size: 64
+  num_workers: 10
+
+dataset: CELEBA
+image_size: 64
+channel: 3

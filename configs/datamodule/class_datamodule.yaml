@@ -1,0 +1,19 @@
+defaults:
+  - img_inpaint_datamodule
+
+_target_: src.datamodules.class_datamodule.ClassImageModule
+
+dl:
+  batch_size: 64
+  num_workers: 1
+
+dataset: CELEBA
+path: ${data_dir}/celeba/
+# “Young”: 39, Male: 20, Pale_Skin: 26, Eyeglasses: 15
+condition_attr: [15, 39]
+male_attr: 20
+num_data_per_class: 500
+direction: male2female
+
+image_size: 64
+channel: 3

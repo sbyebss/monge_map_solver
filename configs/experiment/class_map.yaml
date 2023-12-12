@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+  - override /mode: exp.yaml
+  - override /model: class_model.yaml
+  - override /datamodule: class_datamodule.yaml
+  - override /callbacks: class_callbacks.yaml
+  - override /logger: null
+
+name: "class_map"
+
+trainer:
+  max_epochs: 100000
+  reload_dataloaders_every_n_epochs: 1
+
+logger:
+  wandb:
+    group: "class_map"
+    tags: ["debug"]

@@ -1,0 +1,11 @@
+_target_: src.datamodules.image2text_datamodule.ImageTextModule
+
+batch_size: 128
+num_workers: 32
+
+image_size: 224
+dataset: CIFAR100
+path: ${data_dir}/${datamodule.dataset}
+random_flip: false
+
+imagenet_class_json: ${data_dir}/imagenet/imagenet-simple-labels.json

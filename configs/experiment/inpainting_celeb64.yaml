@@ -1,0 +1,18 @@
+# @package _global_
+
+defaults:
+  - override /mode: exp.yaml
+  - override /model: inpaint_free_mask_model.yaml
+  - override /datamodule: celeba_datamodule.yaml
+  - override /callbacks: inpaint_callbacks.yaml
+  - override /logger: null
+
+name: "inpaint_free_mask"
+
+trainer:
+  max_epochs: 300
+
+logger:
+  wandb:
+    group: "inpaint_celeba"
+    tags: ["debug"]

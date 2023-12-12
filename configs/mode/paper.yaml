@@ -1,0 +1,15 @@
+# @package _global_
+
+experiment_mode: True
+
+# allows for custom naming of the experiment
+name: ???
+
+hydra:
+  run:
+    dir: logs/reproduce/${name}
+  sweep:
+    dir: logs/reproduce
+    subdir: ${name}
+
+run_folder: ${hydra:run.dir}

@@ -1,0 +1,15 @@
+defaults:
+  - default.yaml
+
+save_model:
+  save_interval: 100
+  wait_epoch: 1000
+
+visualization:
+  _target_: src.callbacks.img_callbacks.MapViz
+  log_interval: 1000
+  num_test_sample: 32
+  num_sample_per_row: 8
+
+save_classifier:
+  _target_: src.callbacks.save_callbacks.SaveClassifierCb
